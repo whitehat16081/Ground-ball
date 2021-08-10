@@ -1,29 +1,29 @@
-//NAMESPACING
-const World=Matter.World;
+//Namespacing
 const Engine=Matter.Engine;
+const World=Matter.World;
 const Bodies=Matter.Bodies;
 
-var engine,world,ground;
-
+var engine, world;
 function setup() {
-  var canvas=createCanvas(400,400);
+  createCanvas(400,400);
+
   engine=Engine.create();
   world=engine.world;
 
-  var ground_options ={
-    isStatic : true
+  var options={
+    isStatic:false
   }
-  ground=Bodies.rectangle(200,390,200,50,ground_options);
-  World.add(world,ground);
-
-
+  object=Bodies.rectangle(200,100,50,50,options);
+  World.add(world,object);
+  
 }
 
 function draw() {
-  background(0);  
+  background(0);
+
   Engine.update(engine);
+
   rectMode(CENTER);
-  rect(ground.position.x,ground.position.y,400,20);
-
-
+  rect(object.position.x,object.position.y,50,50);
+  
 }
